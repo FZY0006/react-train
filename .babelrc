@@ -1,13 +1,16 @@
-"presets":[
-    ["@babel/predet-env,"
-    {
-        "usBuiltIns":"entry",
-        "corejs":3
-    }
+{
+    "presets": [
+        // [
+        "@babel/preset-env",
+        // {
+        //     "useBuiltIns": "entry",
+        //     "corejs": 3
+        // }
+        // ],
+        "@babel/preset-react"
     ],
-    "@babel/predet-react"
-   
-], 
-"plugins":[
-    "@babel/plugin-proposal-class-properties"
-]
+    "plugins": [
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-proposal-class-properties"
+    ]
+}
