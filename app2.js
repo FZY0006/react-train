@@ -74,8 +74,6 @@ class Loading extends React.Component {
 }
 
 
-// 这里是所有普通的Components组件
-
 class Menu extends React.Component {
     render() {
         const {onClick, current} = this.props;
@@ -102,7 +100,6 @@ class Menu extends React.Component {
             }
         ];
 
-        // 现在样式变内联了，如何实现:hover, :active的功能？
         const children = links.map((item, key) =>
             <li style={styles.navItem}><a href="#" onClick={() => onClick(item.query)} style={current == item.query ? {'color': 'red'} : {color: 'black'}}>{item.title}</a></li>
         );
@@ -144,7 +141,6 @@ class Card extends React.Component {
     }
 }
 
-// 下面是Header, Content, Footer这三个Layout组件
 class Header extends React.Component {
     render() {
         const {onClick, current} = this.props;
@@ -189,7 +185,7 @@ class Content extends React.Component {
     render() {
         const { items, loading } = this.state;
         const cards = items.map((item, key) =>
-            <Card  source={item} index={key + 1}></Card>
+            <Card key={key} source={item} index={key + 1}></Card>
         );
         return <div style={styles.content}>
             {loading ? <Loading></Loading> : cards}
@@ -202,7 +198,7 @@ class Content extends React.Component {
 class Footer extends React.Component {
     render() {
         return <div style={styles.footer}>
-            版权所有 &copy; LIUWENCAN
+            版权所有 &copy; 没有版权
         </div>
     }
 }
